@@ -1,7 +1,7 @@
 /*
 	never safe for work: a soup script
 	
-	this filters all content not marked as "not safe for work" and which in turn have a good chance to contain nudity or sexual activities. 
+	this filters out all content not marked as "not safe for work" and which in turn have a good chance to contain nudity or sexual activities. 
 	
 	it uses endlessFilter.js and is a slight modification of its example script:
 	https://github.com/edave64/souplements/blob/master/endlessFilter.js
@@ -52,10 +52,11 @@
     Ajax.Request._EndlessFilter = true;
     Ajax.Request.Events = oldRequest.Events;
     Ajax.Request.prototype = oldRequest.prototype;
-
+}());
+	
+(function () {	
     /**
      * Removes all posts that aren't "nsfw" from a document
-	 * adapted from an 
      */
     function removeNonNsfw(doc) {
         var posts = doc.querySelectorAll(".post:not(.f_post_nsfw)");
